@@ -1,6 +1,7 @@
 # REPL C++ using dlopen
 
 REPL C++即交互式的C++解释器。
+![](./screen.svg)
 
 ## ubuntu中的使用方式
 ### 编译load.cpp
@@ -39,13 +40,16 @@ v
 
 
 ### intuition
-
+在src_intuition目录中放置了项目最初想法的测试代码。
 编译为动态链接库
+```shell
 clang++ s1.cpp -g -std=c++11  -shared -fPIC -o libs1.so
 clang++ s2.cpp -g -std=c++11  -shared -fPIC -o libs2.so
 clang++ s3.cpp -g -std=c++11  -shared -fPIC -o libs3.so
 clang++ s4.cpp -g -std=c++11  -shared -fPIC -o libs4.so
 clang++ s5.cpp -g -std=c++11  -shared -fPIC -o libs5.so
-
+```
 使用main中调用
+```shell
 clang++ main.cpp -g -std=c++11 -rdynamic -ldl -o main
+```
